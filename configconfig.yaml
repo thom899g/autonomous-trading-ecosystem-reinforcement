@@ -1,0 +1,44 @@
+# Autonomous Trading Ecosystem Configuration
+trading:
+  symbols:
+    - BTC/USDT
+    - ETH/USDT
+    - SOL/USDT
+  timeframes:
+    - 1m
+    - 5m
+    - 15m
+    - 1h
+  max_position_size: 0.1  # 10% of portfolio per trade
+  stop_loss_pct: 0.02  # 2% stop loss
+  take_profit_pct: 0.05  # 5% take profit
+
+reinforcement_learning:
+  dqn:
+    memory_size: 100000
+    batch_size: 64
+    gamma: 0.99
+    epsilon_start: 1.0
+    epsilon_end: 0.01
+    epsilon_decay: 0.995
+    learning_rate: 0.00025
+    target_update_freq: 1000
+  training:
+    episodes: 1000
+    warmup_steps: 10000
+    save_frequency: 100
+
+genetic_algorithm:
+  population_size: 50
+  generations: 100
+  mutation_rate: 0.1
+  crossover_rate: 0.7
+  elite_count: 5
+
+firebase:
+  project_id: autonomous-trading-ecosystem
+  collection_names:
+    trading_states: trading_states
+    strategies: evolved_strategies
+    market_data: realtime_market_data
+    performance: trading_performance
